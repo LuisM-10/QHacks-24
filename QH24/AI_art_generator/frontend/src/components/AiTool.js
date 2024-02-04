@@ -11,6 +11,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import "@picocss/pico";
 
 //export default class AiTool extends Component {
 export default function AiTool(props) {
@@ -48,40 +49,46 @@ export default function AiTool(props) {
     //Frontend components
     return (
         <Grid container spacing={1}>
-            <Grid item xs={12}>
-                <Button color="secondary" variant="contained" to="/" component={Link}>
+            <Grid item xs={12} align="center">
+                <Button style={{ marginRight: '5px' }} color="secondary" variant="contained" to="/" component={Link}>
                     Home
+                </Button>
+                <Button style={{ margin: '5px' }} color="secondary" variant="contained" to="/about" component={Link}>
+                    About Us
+                </Button>
+                <Button style={{ marginLeft: '5px' }}color="secondary" variant="contained" to="/tool" component={Link}>
+                    Generate
                 </Button>
             </Grid>
             <Grid item xs={12} align="center">
                 <Typography component="h4" variant="h4">
-                    Generate an Image
+                    Generate a Blueprint
                 </Typography>
             </Grid>
             <Grid item xs={12} align="center">
                 <FormControl component="fieldset">
                     <FormHelperText>
-                        <div align="center">Choose a Size</div>
+                        <div align="center" style={{ color: '#D1E5FB'}}>Choose a Size</div>
                     </FormHelperText>
                     
                     <RadioGroup row defaultValue="256x256" onChange={handleSizeChange}>
                         <FormControlLabel 
                         value="256x256" 
-                        control={<Radio color="default"/>}
+                        control={<Radio style={{color: "#EFE5CE"}}/>}
                         label="256x256"
                         labelPlacement="bottom"
                         />
 
                         <FormControlLabel 
                         value="512x512" 
-                        control={<Radio color="primary"/>}
+                        control={<Radio style={{color: "#EF959D"}}/>}
                         label="512x512"
                         labelPlacement="bottom"
                         />
 
                         <FormControlLabel 
                         value="1024x1024" 
-                        control={<Radio color="secondary"/>}
+                        control={<Radio style={{color: "#90DDD0"}}/>}
                         label="1024x1024"
                         labelPlacement="bottom"
                         />
@@ -93,19 +100,26 @@ export default function AiTool(props) {
                     <TextField 
                     required={true}
                     onChange={handleTextPromptChange}
-                    defaultPrompt={textPrompt}/>
+                    defaultPrompt={textPrompt}
+                    InputProps={{
+                        style: { color: "#D1E5FB", borderColor: "#052B2B"}
+                    }}/>
                     <FormHelperText>
-                        <div align="center">
-                            Enter Your Image Description Here
+                        <div align="center" style={{ color: "#D1E5FB"}}>
+                            Enter A Description of The Object to Generate a Blueprint of
                         </div>
                     </FormHelperText>
                 </FormControl>
             </Grid>
-            <Grid item xs={12} align="center">
-                <Button color="primary" variant="contained" onClick={handleCreateButtonPress}>
+        <Grid container spacing={1} justifyContent="center">
+            <Grid item xs={2} align="center">
+                <Button color="secondary" variant="contained" onClick={handleCreateButtonPress}>
                     Create
                 </Button>
             </Grid>
         </Grid>
+
+
+    </Grid>
     );
 }

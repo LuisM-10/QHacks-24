@@ -34,15 +34,21 @@ export default class ImageDisplay extends Component{
 
     render(){
         return ( 
-            <Grid container spacing={1} style={{overflow: 'auto'}}>
-                <Grid item xs={12}>
-                    <Button color="secondary" variant="contained" to="/" component={Link}>
+            <Grid container spacing={1} style={{overflowY: 'auto'}}>
+                 <Grid item xs={12} align="center">
+                    <Button style={{ marginRight: '5px' }} color="secondary" variant="contained" to="/" component={Link}>
                         Home
+                    </Button>
+                    <Button style={{ margin: '5px' }} color="secondary" variant="contained" to="/about" component={Link}>
+                        About Us
+                    </Button>
+                    <Button style={{ marginLeft: '5px' }}color="secondary" variant="contained" to="/tool" component={Link}>
+                        Generate
                     </Button>
                 </Grid>
 
                 <Grid item xs={12} align="center">
-                    <Typography component="h4" variant="h4">
+                    <Typography style={{color: "#D1E5FB"}} component="h4" variant="h4" > 
                         {this.state.text_prompt.toString()}
                     </Typography>
                 </Grid>
@@ -50,7 +56,7 @@ export default class ImageDisplay extends Component{
                 <Grid item xs={12} align="center">
                     <FormControl component="fieldset">
                         <FormHelperText>
-                            <div align="center">{this.state.size.toString()}</div>
+                            <div style={{color: "#D1E5FB"}} align="center">{this.state.size.toString()}</div>
                         </FormHelperText>
                         </FormControl>
                 </Grid>
@@ -60,7 +66,7 @@ export default class ImageDisplay extends Component{
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} align="center">
-                    <Button color="primary" variant="contained" to="/tool" component={Link}>
+                    <Button color="secondary" variant="contained" to="/tool" component={Link}>
                          Generate Another Image
                     </Button>
                 </Grid>

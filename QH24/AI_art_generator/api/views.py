@@ -51,13 +51,13 @@ class CreateImageView(APIView):
 
                 #Generate an image and store its url
                 if session.size == "1024x1024":
-                    response = openai.images.generate(prompt= "A highly detailed blueprint of " + session.text_prompt,
+                    response = openai.images.generate(prompt="A highly detailed blueprint of" + session.text_prompt,
                                                     model="dall-e-3",
                                                     n=1,
                                                     quality="hd",
                                                     size=session.size)
                 else:
-                    response = openai.images.generate(prompt= "A highly detailed blueprint of " + session.text_prompt,
+                    response = openai.images.generate(prompt="A highly detailed blueprint of" + session.text_prompt,
                                                     model="dall-e-2",
                                                     n=1,
                                                     size=session.size)
