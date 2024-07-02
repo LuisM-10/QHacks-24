@@ -2,7 +2,7 @@
 
 Demo: https://www.youtube.com/watch?v=8pe-9AhXssI
 
-Steps to start the website out
+**Steps to run the web application**
 
 1. Make the first terminal, cd into OH24 --> AI_art_generator and type "python .\manage.py runserver" in the terminal.
 
